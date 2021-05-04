@@ -1,0 +1,27 @@
+---
+name: CICD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: []
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2
+      - name: Test
+        run: docker compose run --rm app sh -c "python manage.py test"
+
+  lint:
+    name: LintTest
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2
+      - name: Test
+        run: docker compose run --rm app sh -c "flake8"
