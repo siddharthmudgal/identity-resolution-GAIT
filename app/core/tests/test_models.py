@@ -8,10 +8,11 @@ class TestUser(TestCase):
         sensordata = [1.2, 2.0, 3.5, 5.6]
 
         user = User.objects.create(
-            userid="sampleuserid",
+            userid="9834897234",
             sensordata_x=sensordata,
             sensordata_y=sensordata,
             sensordata_z=sensordata,
         )
 
-        self.assertEqual(user.__str__(), "sampleuserid")
+        self.assertEqual(user.__str__(), "9834897234")
+        user.delete()

@@ -7,3 +7,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('userid', 'sensordata_x', 'sensordata_y', 'sensordata_z')
+
+
+class ResultSerializer(serializers.Serializer):
+    """serializer to send back the result of authentication"""
+    corr_result = serializers.CharField(max_length=255)
